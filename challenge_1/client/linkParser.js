@@ -10,6 +10,14 @@ would become a much more manageable object: {
 
 currently, this function is not used because the pagination of the results shows the first and last page numbers, which serve the same purpose as
 first and last by just using the numbers, and the next and previous buttons similarly query with the page number +/- 1
+
+    to use linkParser, these lines can be placed back in app.jsx
+
+
+      // state that will hold the links to allow scrolling through pages of results
+        const [links, setLinks] = useState({});
+
+       setLinks(linkParser(results.headers.link.split(',')));
 */
 
 const linkParser = (linkArray) => {

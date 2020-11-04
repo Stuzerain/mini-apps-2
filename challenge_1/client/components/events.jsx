@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import ReactPaginate from 'react-paginate';
 import EventBox from './eventbox.jsx';
 
-const Events = ({events, links, pages, loadResults}) => {
+const Events = ({events, pages, loadResults}) => {
 
   // const [pageNum, setPageNum] = useState(1);
 

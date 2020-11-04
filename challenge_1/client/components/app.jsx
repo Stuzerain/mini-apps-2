@@ -11,8 +11,6 @@ const App = () => {
   const [keyword, setKeyword] = useState('')
   // state that holds the results of a search
   const [events, setEvents] = useState([]);
-  // state that will hold the links to allow scrolling through pages of results
-  const [links, setLinks] = useState({});
   // state that will hold the total number of pages to pass along to the pagination
   const [pages, setPages] = useState(0);
 
@@ -21,7 +19,6 @@ const App = () => {
     axios.get(`/events?_page=${page}&_limit=10&q=${search}`)
       .then(results => {
         setEvents(results.data)
-        setLinks(linkParser(results.headers.link.split(',')));
         setPages(Math.ceil(results.headers['x-total-count'] / 10));
       })
   }
@@ -32,7 +29,7 @@ const App = () => {
 
     <SearchBar keyword={keyword} setKeyword = {setKeyword} loadResults={loadResults} />
 
-    <Events events={events} links={links} pages={pages} loadResults={loadResults}/>
+    <Events events={events} pages={pages} loadResults={loadResults}/>
 
     </div>
   )
