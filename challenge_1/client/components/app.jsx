@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
-import linkParser from '../linkParser.js';
 
 import SearchBar from './search.jsx';
 import Events from './events.jsx';
@@ -21,7 +20,6 @@ const App = () => {
   const loadResults = (page, search=keyword) => {
     axios.get(`/events?_page=${page}&_limit=10&q=${search}`)
       .then(results => {
-        console.log(results);
         setEvents(results.data)
         setLinks(linkParser(results.headers.link.split(',')));
         setPages(Math.ceil(results.headers['x-total-count'] / 10));

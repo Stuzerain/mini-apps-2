@@ -12,6 +12,7 @@ const Events = ({events, links, pages, loadResults}) => {
     <EventBox event={event} key={index} />
   )
 
+  // upon clicking a page number, next, or previous, calls loadResults() with the proper page number to fetch that page from the json-server
   const handlePageClick = (data) => {
     let selected = data.selected;
     loadResults(selected);
@@ -20,6 +21,7 @@ const Events = ({events, links, pages, loadResults}) => {
 
   return (
     <div >
+      {/* renders up to 10 discrete EventBox divs based on the events on the current 'page' of events in state */}
       {eventBoxes}
 
       <ReactPaginate
