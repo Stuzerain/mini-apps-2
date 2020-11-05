@@ -4,16 +4,16 @@ import axios from 'axios';
 
 import wrangle from '../wrangle.js';
 
-const Search = ({setData}) => {
-
-  const [from, setFrom] = useState('');
-  const [to, setTo] = useState('')
+const Search = ({data, setData}) => {
+  // default values in case dates are submitted without dates entered
+  const [from, setFrom] = useState('2020-04-07');
+  const [to, setTo] = useState('2020-11-23');
 
   const fetchFromAPI = () => {
     axios.get(`https://api.coindesk.com/v1/bpi/historical/close.json?start=${from}&end=${to}`)
       .then(results => {
         setData(wrangle(results));
-      })
+      });
   }
 
   const handleFormChange = (event, order) => {

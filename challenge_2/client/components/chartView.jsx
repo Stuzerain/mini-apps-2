@@ -20,7 +20,7 @@ const ChartView = () => {
 
   return (
     <div>
-      <Search setData={setData}/>
+      <Search data={data} setData={setData}/>
       <Line
       data={data}
       width={400}
