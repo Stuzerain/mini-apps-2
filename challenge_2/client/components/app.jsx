@@ -5,7 +5,7 @@ import ChartView from './chartView.jsx';
 const App = () => {
 
   return (
-    <div>wa wa wee wa
+    <div>
       <ChartView />
     </div>
   )
