@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import ReactDOM from 'react-dom';
 import {Line} from 'react-chartjs-2';
 import axios from 'axios';
+import Search from './search.jsx';
 
 import wrangle from '../wrangle.js';
 
@@ -19,6 +20,7 @@ const ChartView = () => {
 
   return (
     <div>
+      <Search setData={setData}/>
       <Line
       data={data}
       width={400}
